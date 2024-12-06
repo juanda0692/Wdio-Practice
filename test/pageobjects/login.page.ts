@@ -21,8 +21,8 @@ class LoginPage extends Page {
         await this.btnSubmit.click();
     }
 
-    public open() {
-        return super.open('login');
+    public openLoginHerokuApp() {
+        return super.openHerokuApp('login');
     }
 }
 
