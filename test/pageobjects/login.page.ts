@@ -1,7 +1,7 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import BasePage from './page.js';
 
-class LoginPage extends Page {
+class LoginPage extends BasePage {
 
     public get inputUsername() {
         return $('#username');

@@ -1,66 +1,53 @@
-# Automation Testing Project
+# Automated Tests for The Internet (HerokuApp)
 
-## Overview
-This project is a practice exercise in automation testing, focusing on functional testing of a public website, [DemoQA](https://demoqa.com/). The goal is to apply principles of automation testing using WebdriverIO to create a suite of tests that verify the functionality of various components of the website.
+This document outlines the automated test scenarios implemented for the website [The Internet](https://the-internet.herokuapp.com/) using WebdriverIO.
 
-## Technologies Used
-- **Automation Framework:** WebdriverIO
-- **Programming Language:** JavaScript
-- **Testing Framework:** Mocha / Jasmine (depending on preference)
-- **Browser:** Chrome, Firefox (or any other browser supported by WebdriverIO)
+## Test Scenarios
 
-## Functional Tests
-The following functional tests are implemented in Gherkin format to ensure the correct behavior of the DemoQA website. Each scenario addresses specific interactions and expected outcomes.
+### Scenario 1: Verify that the homepage loads correctly
+**Given** the user navigates to the homepage `https://the-internet.herokuapp.com/`  
+**Then** the header `Welcome to the-internet` should be visible.  
 
-### Feature: Interaction with the DemoQA website
+### Scenario 2: Login with valid credentials
+**Given** the user is on the "Login Page"
+**When** the user enters the username tomsmith and password SuperSecretPassword!
+**And** clicks the login button
+**Then** the user should be redirected to a secure area
+**And** the flash alert with the message You logged into a secure area! should be visible.
 
-#### Scenario 1: Verify that the homepage loads correctly
-Given the user navigates to the page "https://demoqa.com/"
-Then the title of the page should be "ToolsQA"
-And the header "DemoQA" should be visible
+### Scenario 3: Perform a drag-and-drop action
+**Given** the user is on the "Drag and Drop" page  
+**When** the user drags the `Draggable` element to the `Droppable` element  
+**Then** the `Droppable` element should display the text `B`.  
 
-#### Scenario 2: Navigate to the "Elements" section
-Given the user is on the homepage
-When the user clicks on the "Elements" link
-Then they should be redirected to the "Elements" page
-And the header "Elements" should be visible
+### Scenario 4: Switch between multiple windows
+**Given** the user is on the "Multiple Windows" page  
+**When** the user clicks on the "Click Here" link to open a new window  
+**Then** a new window should open with the header `New Window`  
+**And** the user switches to the new window  
+**Then** the header `New Window` should be visible  
+**When** the user closes the new window  
+**And** switches back to the original window  
+**Then** the header `Opening a new window` should be visible.  
 
-#### Scenario 3: Fill out the form in the "Forms" section
-Given the user is on the "Forms" page
-When the user fills in the "First Name" field with "John"
-And fills in the "Last Name" field with "Doe"
-And fills in the "Email" field with "john.doe@example.com"
-And selects "Male" as the gender
-And clicks the "Submit" button
-Then they should see a success message containing "Thanks for submitting the form"
+## Prerequisites
+- Node.js installed on your machine.
+- WebdriverIO framework installed.
+- Dependencies installed via `npm install`.
 
-#### Scenario 4: Interact with the "Widgets" component and verify the "Accordion"
-Given the user is on the "Widgets" page
-When the user clicks on the first item of the "Accordion"
-Then they should see the expanded content of the "Accordion"
-And the text should contain "This is the content of the Accordion"
+## Running the Tests
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Run the tests using the command:  
+   ```bash
+   npx wdio run wdio
+   ```
 
-#### Scenario 5: Perform a drag-and-drop action in the "Interactions" section
-Given the user is on the "Interactions" page
-When the user drags the "Draggable" element to the "Droppable" location
-Then the "Droppable" element should display the text "Dropped!"
+## Folder Structure
+- **page.ts**: Contains the base class with shared methods.
+- **login.page.ts**: Contains methods and selectors specific to the login functionality.
+- **test files**: Located in the test folder, covering various scenarios for The Internet website.
 
-#### Scenario: Switch between tabs in the "Browser Windows" section
-Given the user is on the "Browser Windows" page
-When the user clicks on the "Tab" button
-Then a new tab should open with the title "This is a sample page"
-And the user switches to the new tab
-Then the header "This is a sample page" should be visible
-When the user closes the new tab
-And switches back to the original tab
-Then the header "Browser Windows" should be visible
+## Notes
+- These tests are written for demonstration purposes and may require adjustments for changes in the website structure or additional scenarios.
 
-#### Scenario: Switch between multiple windows in the "Browser Windows" section
-Given the user is on the "Browser Windows" page
-When the user clicks on the "Window" button
-Then a new window should open with the title "This is a sample page"
-And the user switches to the new window
-Then the header "This is a sample page" should be visible
-When the user closes the new window
-And switches back to the original window
-Then the header "Browser Windows" should be visible
