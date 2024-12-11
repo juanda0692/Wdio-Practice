@@ -1,5 +1,5 @@
 {
-  "name": "Wdio-Practice",
+  "name": "wdio-practice",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^9.4.1",

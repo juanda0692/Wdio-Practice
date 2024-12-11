@@ -1,14 +1,11 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import BasePage from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class SecurePage extends Page {
+class SecurePage extends BasePage {
     /**
      * define selectors using getter methods
      */
-    public get flashAlert () {
+    public get flashAlert() {
         return $('#flash');
     }
 }
