@@ -40,7 +40,7 @@ This document outlines the automated test scenarios implemented for the website 
 2. Install dependencies using `npm install`.
 3. Run the tests using the command:  
    ```bash
-   npx wdio run wdio
+   npm run wdio
    ```
 
 ## Folder Structure
