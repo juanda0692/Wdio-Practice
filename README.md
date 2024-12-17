@@ -1,4 +1,4 @@
-# 🚀 **Automated Tests for The Internet (HerokuApp)**  
+# 🚀 **Automated Tests for The Internet**  
 
 This document outlines the automated test scenarios implemented for the websites [🌐 The Internet](https://the-internet.herokuapp.com/) & [🛒 Online Store](https://automationteststore.com/) using **WebdriverIO**.  
 
