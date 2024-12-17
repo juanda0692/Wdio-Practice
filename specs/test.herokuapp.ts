@@ -26,7 +26,6 @@ describe('My Login application', () => {
         await DragAndDropPage.secondSquare.waitForDisplayed({ timeout: 500 });
         const firstSquare = DragAndDropPage.firstSquare;
         await firstSquare.dragAndDrop(await DragAndDropPage.secondSquare, { duration: 500 });
-        await DragAndDropPage.pauseBrowser();
         const finalLetterFirstSquare = await DragAndDropPage.firstSquareName.getText();
         const finalLetterSecondSquare = await DragAndDropPage.secondSquareName.getText();
         await expect(initialLetterFirstSquare).toEqual(finalLetterSecondSquare);
